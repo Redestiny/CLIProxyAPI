@@ -182,6 +182,8 @@ func (s *Service) registerModelsForAuthWithCache(ctx context.Context, a *coreaut
 	case "devin":
 		models = registry.GetDevinModels()
 		models = applyExcludedModels(models, excluded)
+	case "gemini-app":
+		models = applyExcludedModels(registry.GetGeminiAppModels(), excluded)
 	case "meta":
 		models = registry.GetMetaModels()
 		if entry := s.resolveConfigMetaKey(a); entry != nil {
